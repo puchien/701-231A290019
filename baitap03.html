@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 3 - Đồng hồ đếm ngược</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">Bài tập 24 - Lập trình Web</div>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="baitap01.html">Bài 1 - Sản phẩm</a>
+      <a href="baitap02.html">Bài 2 - Đăng ký</a>
+      <a href="baitap03.html">Bài 3 - Đếm ngược</a>
+      <a href="lythuyet.html">Trả lời lý thuyết</a>
+      <a href="baitap23.html">Bài tập 23</a>
+      <a href="baitap22.html">Bài tập 22</a>
+      <a href="diemdanh.html">Thông tin điểm danh</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+<section class="timer-card">
+  <h1>Bài thực hành 2: Countdown Timer</h1>
+  <p>Đồng hồ đếm ngược từ 10 phút, hiển thị theo định dạng MM:SS.</p>
+  <div id="timer" role="timer" aria-live="off">10:00</div>
+  <div class="timer-actions">
+    <button class="button" id="startTimer" type="button">Bắt đầu</button>
+    <button class="button secondary" id="pauseTimer" type="button">Tạm dừng</button>
+    <button class="button secondary" id="resetTimer" type="button">Đặt lại</button>
+  </div>
+  <p class="muted">Khi còn dưới 1 phút, đồng hồ sẽ nhấp nháy. Khi về 00:00, trình duyệt hiển thị thông báo.</p>
+</section>
+<section class="panel">
+  <h2>Logic xử lý</h2>
+  <p>JavaScript dùng setInterval để giảm thời gian mỗi giây. clearInterval được gọi khi tạm dừng, đặt lại hoặc hết giờ. Trong ứng dụng cần đồng bộ chính xác với thời gian server, nên tính thời điểm kết thúc dựa trên timestamp server thay vì tin hoàn toàn vào đồng hồ của trình duyệt.</p>
+</section>
+</main>
+<footer><div class="container">Bài tập 24 - Lập trình Web | Đại học Văn Hiến</div></footer>
+<script src="js/script.js"></script>
+</body></html>

@@ -1,0 +1,116 @@
+body.lantern-page {
+  background: #f3f5f8;
+}
+
+.lantern-main {
+  width: min(900px, 94%);
+  margin: 24px auto 42px;
+  text-align: center;
+}
+
+.instruction {
+  margin: 0 auto 14px;
+  font-size: 17px;
+}
+
+.stage {
+  position: relative;
+  width: min(340px, 88vw);
+  height: min(340px, 88vw);
+  margin: 28px auto;
+  perspective: 900px;
+}
+
+.lantern {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: spin 12s linear infinite;
+}
+
+.lantern.paused {
+  animation-play-state: paused;
+}
+
+.face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 210px;
+  overflow: hidden;
+  border: 3px solid #d5a33d;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.22);
+  transform-style: preserve-3d;
+  margin-left: -75px;
+  margin-top: -105px;
+}
+
+.face img {
+  display: block;
+  width: 100%;
+  height: 178px;
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.face span {
+  display: block;
+  height: 26px;
+  padding: 2px;
+  color: #263b55;
+  background: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.face-1 { transform: rotateY(0deg) translateZ(130px); }
+.face-2 { transform: rotateY(60deg) translateZ(130px); }
+.face-3 { transform: rotateY(120deg) translateZ(130px); }
+.face-4 { transform: rotateY(180deg) translateZ(130px); }
+.face-5 { transform: rotateY(240deg) translateZ(130px); }
+.face-6 { transform: rotateY(300deg) translateZ(130px); }
+
+.face:hover {
+  border-color: #2463a6;
+  box-shadow: 0 0 0 4px rgba(36, 99, 166, .2);
+}
+
+.status {
+  font-weight: bold;
+  color: #263b55;
+}
+
+.note {
+  max-width: 650px;
+  margin: 14px auto 22px;
+  color: #586474;
+  font-size: 14px;
+}
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@media (max-width: 420px) {
+  .face {
+    width: 128px;
+    height: 182px;
+    margin-left: -64px;
+    margin-top: -91px;
+  }
+
+  .face img {
+    height: 151px;
+  }
+
+  .face-1 { transform: rotateY(0deg) translateZ(112px); }
+  .face-2 { transform: rotateY(60deg) translateZ(112px); }
+  .face-3 { transform: rotateY(120deg) translateZ(112px); }
+  .face-4 { transform: rotateY(180deg) translateZ(112px); }
+  .face-5 { transform: rotateY(240deg) translateZ(112px); }
+  .face-6 { transform: rotateY(300deg) translateZ(112px); }
+}

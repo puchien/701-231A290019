@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 2 - Form đăng ký</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">Bài tập 24 - Lập trình Web</div>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="baitap01.html">Bài 1 - Sản phẩm</a>
+      <a href="baitap02.html">Bài 2 - Đăng ký</a>
+      <a href="baitap03.html">Bài 3 - Đếm ngược</a>
+      <a href="lythuyet.html">Trả lời lý thuyết</a>
+      <a href="baitap23.html">Bài tập 23</a>
+      <a href="baitap22.html">Bài tập 22</a>
+      <a href="diemdanh.html">Thông tin điểm danh</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+<section class="form-card">
+  <h1>Bài thực hành 1: Form đăng ký</h1>
+  <p class="muted">Nhập thông tin và gửi form để kiểm tra dữ liệu.</p>
+  <form id="registerForm">
+    <label for="fullName">Họ và tên</label>
+    <input id="fullName" name="fullName" type="text" required maxlength="100" autocomplete="name">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required autocomplete="email">
+    <label for="password">Mật khẩu</label>
+    <input id="password" name="password" type="password" required minlength="8" autocomplete="new-password">
+    <div class="checkbox-row">
+      <input id="agree" name="agree" type="checkbox">
+      <label for="agree">Tôi đồng ý với điều khoản sử dụng.</label>
+    </div>
+    <button class="button" type="submit">Đăng ký</button>
+    <p id="registerMessage" aria-live="polite"></p>
+  </form>
+</section>
+<section class="panel">
+  <h2>Lưu ý bảo mật</h2>
+  <p>Ví dụ này chỉ lưu tên, email và thời gian đăng ký vào LocalStorage, không lưu mật khẩu. LocalStorage không phù hợp để lưu dữ liệu bí mật. Website thực tế cần máy chủ, kết nối HTTPS và cơ chế băm mật khẩu an toàn.</p>
+</section>
+</main>
+<footer><div class="container">Bài tập 24 - Lập trình Web | Đại học Văn Hiến</div></footer>
+<script src="js/script.js"></script>
+</body></html>

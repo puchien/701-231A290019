@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài tập 23 - Đèn kéo quân</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="den-keo-quan.css">
+</head>
+<body class="lantern-page">
+  <header class="site-header">
+    <h1>BÀI TẬP 23 - ĐÈN KÉO QUÂN</h1>
+    <p>Họ tên: Huỳnh Phúc Hiền | MSSV: 231A290019</p>
+  </header>
+
+  <main class="lantern-main">
+    <p class="instruction">Đưa chuột vào một mặt hình để dừng đèn. Rê chuột ra ngoài để đèn quay tiếp.</p>
+
+    <div class="stage" aria-label="Đèn kéo quân 6 mặt">
+      <div class="lantern" id="lantern">
+        <div class="face face-1"><img src="images/hinh1.jpg" alt="Hình ảnh mặt 1"><span>Mặt 1</span></div>
+        <div class="face face-2"><img src="images/hinh2.jpg" alt="Hình ảnh mặt 2"><span>Mặt 2</span></div>
+        <div class="face face-3"><img src="images/hinh3.jpg" alt="Hình ảnh mặt 3"><span>Mặt 3</span></div>
+        <div class="face face-4"><img src="images/hinh4.jpg" alt="Hình ảnh mặt 4"><span>Mặt 4</span></div>
+        <div class="face face-5"><img src="images/hinh5.jpg" alt="Hình ảnh mặt 5"><span>Mặt 5</span></div>
+        <div class="face face-6"><img src="images/hinh6.jpg" alt="Hình ảnh mặt 6"><span>Mặt 6</span></div>
+      </div>
+    </div>
+
+    <p id="status" class="status" aria-live="polite">Trạng thái: Đèn đang quay</p>
+    <p class="note">Thay 6 tệp ảnh trong thư mục <code>images</code> bằng ảnh của bạn, giữ nguyên tên hinh1.jpg đến hinh6.jpg.</p>
+    <a class="button" href="index.html">Quay lại trang chủ</a>
+  </main>
+
+  <footer>
+    <p>© Huỳnh Phúc Hiền - 231A290019</p>
+  </footer>
+
+  <script src="den-keo-quan.js"></script>
+</body>
+</html>

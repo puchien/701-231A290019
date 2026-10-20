@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trả lời lý thuyết - Bài tập 24</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">Bài tập 24 - Lập trình Web</div>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="baitap01.html">Bài 1 - Đăng ký</a>
+      <a href="baitap02.html">Bài 2 - Đếm ngược</a>
+      <a href="baitap03.html">Bài 3</a>
+      <a href="lythuyet.html">Trả lời lý thuyết</a>
+      <a href="baitap23.html">Bài tập 23</a>
+      <a href="baitap22.html">Bài tập 22</a>
+      <a href="diemdanh.html">Thông tin điểm danh</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+
+<article class="panel answer">
+<h1>Phần 1: Lý thuyết (40 điểm)</h1>
+<h2>Câu 1 (10 điểm): Phân biệt position: relative và position: absolute</h2>
+<p><strong>position: relative</strong> đặt phần tử ở vị trí tương đối so với vị trí ban đầu của chính nó. Phần tử vẫn chiếm chỗ trong luồng bố cục. Có thể dùng top, right, bottom, left để dịch chuyển phần tử.</p>
+<p><strong>position: absolute</strong> đưa phần tử ra khỏi luồng bố cục thông thường. Phần tử được định vị theo tổ tiên gần nhất có position khác static; nếu không có thì thường theo khung trang.</p>
+<p><strong>Ví dụ:</strong></p>
+<pre><code>.card { position: relative; }
+.badge { position: absolute; top: 8px; right: 8px; }</code></pre>
+<p>Ở ví dụ này, thẻ .card là vùng tham chiếu và .badge có thể nằm ở góc trên bên phải của thẻ. Với responsive, nên kết hợp Flexbox/Grid, kích thước linh hoạt và media query, không dùng tọa độ cố định quá nhiều vì có thể chồng lấn trên màn hình nhỏ. Việc deploy lên hosting không tự làm thay đổi cách position hoạt động; trình duyệt của thiết bị sẽ áp dụng CSS. Cần kiểm thử nhiều kích thước màn hình sau khi deploy.</p>
+
+<h2>Câu 2 (10 điểm): Đăng ký domain và cấu hình hosting</h2>
+<p>Quy trình cơ bản: (1) chọn tên miền và kiểm tra khả dụng; (2) đăng ký qua nhà cung cấp tên miền; (3) tạo website và chọn hosting; (4) tải các file HTML/CSS/JavaScript lên hosting hoặc kết nối repository; (5) cấu hình DNS để tên miền trỏ đến hosting; (6) bật HTTPS và kiểm tra website trên nhiều thiết bị.</p>
+<p><strong>DNS</strong> là hệ thống phân giải tên miền thành địa chỉ máy chủ hoặc thông tin đích tương ứng. Khi người dùng nhập tên miền, DNS giúp trình duyệt tìm đúng dịch vụ lưu trữ website. Cập nhật DNS có thể cần thời gian để phổ biến.</p>
+<p><strong>Công cụ deploy tĩnh:</strong> GitHub Pages phù hợp website tĩnh lưu trong GitHub; Netlify hỗ trợ deploy từ repository hoặc tải bản build lên. Các nền tảng này có thể chạy HTML, CSS và JavaScript phía trình duyệt mà không cần tự quản lý máy chủ riêng.</p>
+<p><strong>Rủi ro bảo mật:</strong> không bật HTTPS có thể khiến dữ liệu truyền đi thiếu bảo vệ; đưa mật khẩu/API key vào JavaScript công khai sẽ làm lộ thông tin; cấu hình DNS sai có thể khiến người dùng đến nhầm nơi; form phía client có thể bị sửa nên dữ liệu quan trọng phải được xác minh ở server. Cần tránh lưu mật khẩu dạng rõ trong LocalStorage.</p>
+
+<h2>Câu 3 (10 điểm): So sánh var, let và const</h2>
+<p><strong>var</strong> có phạm vi hàm (function scope), có thể khai báo lại và được hoisting với giá trị ban đầu là undefined. <strong>let</strong> có phạm vi khối (block scope), không được truy cập trước dòng khai báo do temporal dead zone và không thể khai báo lại cùng tên trong cùng phạm vi. <strong>const</strong> cũng có block scope, phải gán giá trị khi khai báo và không thể gán lại biến; nếu chứa object/array thì nội dung object/array vẫn có thể thay đổi.</p>
+<pre><code>console.log(a); // undefined
+var a = 1;
+
+// console.log(b); // ReferenceError
+let b = 2;
+
+if (true) {
+  let count = 1;
+}
+// console.log(count); // ReferenceError</code></pre>
+<p>Lỗi thường gặp là truy cập biến let trước khi khai báo hoặc dùng var trong vòng lặp tạo ra phạm vi không mong muốn. Để debug, mở Chrome DevTools bằng F12 hoặc chuột phải → Inspect, vào Console để đọc lỗi; dùng Sources đặt breakpoint, chạy từng bước và quan sát giá trị biến. Nên ưu tiên const mặc định, dùng let khi cần gán lại và hạn chế var trong code mới.</p>
+
+<h2>Câu 4 (10 điểm): Event Delegation</h2>
+<p><strong>Event Delegation</strong> là kỹ thuật gắn một event listener lên phần tử cha thay vì gắn riêng lên từng phần tử con. Khi sự kiện nổi bọt (bubbling) lên cha, kiểm tra event.target hoặc dùng closest() để xác định phần tử con đã được tương tác.</p>
+<pre><code>document.querySelector("#list").addEventListener("click", function (event) {
+  const item = event.target.closest("li");
+  if (item && this.contains(item)) {
+    console.log("Bạn chọn:", item.textContent);
+  }
+});</code></pre>
+<p>Kỹ thuật này hữu ích với danh sách động vì các mục được thêm sau vẫn có thể được xử lý mà không cần gắn listener lại. Nó giảm số lượng listener và giúp code dễ bảo trì. Cần kiểm tra đúng phần tử đích và cấu trúc HTML; CSS có thể dùng :hover, class trạng thái hoặc layout Grid/Flexbox để hiển thị phản hồi trực quan. Không phải mọi sự kiện đều nổi bọt giống nhau, nên cần chọn sự kiện phù hợp.</p>
+</article>
+
+</main>
+<footer><div class="container">Bài tập 24 - Lập trình Web | Đại học Văn Hiến</div></footer>
+<script src='js/script.js'></script>
+</body>
+</html>
